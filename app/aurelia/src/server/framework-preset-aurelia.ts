@@ -48,11 +48,6 @@ export function webpack(
           use: require.resolve('@aurelia/webpack-loader'),
           exclude: /node_modules/,
         },
-        {
-          test: /\.mjs$/i,
-          include: /node_modules/,
-          type: 'javascript/auto',
-        },
       ],
     },
     plugins: [...config.plugins, createForkTsCheckerInstance(tsLoaderOptions)],
