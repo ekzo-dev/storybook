@@ -1,3 +1,4 @@
+/* eslint-disable func-names */
 import fs from 'fs';
 import path from 'path';
 import { logger } from '@storybook/node-logger';
