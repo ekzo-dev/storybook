@@ -7368,6 +7368,7 @@ __metadata:
   dependencies:
     "@storybook/addons": 6.5.9
     "@storybook/api": 6.5.9
+    "@storybook/builder-webpack5": "workspace:^"
     "@storybook/client-logger": 6.5.9
     "@storybook/core": 6.5.9
     "@storybook/core-common": 6.5.9
@@ -7475,7 +7476,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@storybook/builder-webpack5@6.5.9, @storybook/builder-webpack5@workspace:lib/builder-webpack5":
+"@storybook/builder-webpack5@6.5.9, @storybook/builder-webpack5@workspace:^, @storybook/builder-webpack5@workspace:lib/builder-webpack5":
   version: 0.0.0-use.local
   resolution: "@storybook/builder-webpack5@workspace:lib/builder-webpack5"
   dependencies:

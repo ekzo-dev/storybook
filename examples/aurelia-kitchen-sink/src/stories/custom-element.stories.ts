@@ -17,10 +17,10 @@ const Template: Story = (args) => ({
 export const Primary = Template.bind({
   props: { text: 'asdfasdfasd' },
 });
-Primary.args = {
-  text: 'primary',
-  date: new Date(),
-};
+// Primary.args = {
+//   text: 'primary',
+//   date: new Date(),
+// };
 
 const Template2: Story = (args) => ({
   template: 'asdfasdf<cool-button text.bind="text"></cool-button>',
