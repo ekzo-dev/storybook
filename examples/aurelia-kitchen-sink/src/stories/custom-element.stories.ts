@@ -1,12 +1,8 @@
-import { StoryFn } from '@storybook/addons';
-import { withActions, action } from '@storybook/addon-actions';
-
-import { StoryFnAureliaReturnType, addComponents, Meta, Story } from '@storybook/aurelia';
+import type { Meta, Story } from '@storybook/aurelia';
 import { CoolButton } from '../cool-button/cool-button';
 
 export default {
   title: 'Custom/Custom Elements',
-  decorators: [withActions, addComponents(CoolButton)],
   component: CoolButton,
 } as Meta;
 
@@ -23,7 +19,7 @@ export const Primary = Template.bind({
 // };
 
 const Template2: Story = (args) => ({
-  template: 'asdfasdf<cool-button text.bind="text"></cool-button>',
+  template: '<cool-button text.bind="text"></cool-button>',
   props: args,
 });
 

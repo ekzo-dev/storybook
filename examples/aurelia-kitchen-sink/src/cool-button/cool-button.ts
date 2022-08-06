@@ -1,7 +1,38 @@
 import { bindable } from 'aurelia';
 
-export class CoolButton {
-  @bindable text: string;
+interface ISome {
+  gg: string;
+}
 
-  @bindable buttonType = 'primary';
+enum Aa {
+  a = 'fdfd',
+  b = 'fdfd',
+}
+
+export class CoolButton {
+  @bindable()
+  text: Aa;
+
+  @bindable()
+  buttonType = 'primary';
+
+  @bindable()
+  booleanProp: boolean;
+
+  @bindable()
+  numberProp: number;
+
+  @bindable()
+  lambdaProp: () => void;
+
+  @bindable()
+  functionProp: Function;
+
+  handleClick() {
+    console.log('handleClick');
+    if (this.lambdaProp) {
+      console.log('hasLambdaProp');
+      this.lambdaProp();
+    }
+  }
 }
