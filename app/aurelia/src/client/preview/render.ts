@@ -15,9 +15,9 @@ export async function renderToDOM(
   }: RenderContext<AureliaFramework>,
   domElement: HTMLElement
 ) {
-  const element = storyFn();
+  const story = storyFn();
 
-  if (!element) {
+  if (!story) {
     showError({
       title: `Expecting an Aurelia component from the story: "${name}" of "${kind}".`,
       description: `
@@ -27,24 +27,24 @@ export async function renderToDOM(
     });
   }
   showMain();
-
+  console.log(previousAurelia, story);
   if (previousAurelia) {
     await previousAurelia.stop();
   }
 
-  previousAurelia = new Aurelia(element.container);
-  if (element.items && element.items.length > 0) {
-    previousAurelia.register(...element.items);
+  previousAurelia = new Aurelia(story.container);
+  if (story.items && story.items.length > 0) {
+    previousAurelia.register(...story.items);
   }
 
-  if (element.components && element.components.length > 0) {
-    previousAurelia.container.register(...element.components);
+  if (story.components && story.components.length > 0) {
+    previousAurelia.container.register(...story.components);
   }
 
-  let { template } = element;
+  let { template } = story;
   if (component) {
     const def = CustomElement.getDefinition(component);
-    const innerHtml = element.props.innerHtml ?? '';
+    const innerHtml = story.props.innerHtml ?? '';
     template =
       template ??
       `<${def.name} ${Object.values(def.bindables)
@@ -52,10 +52,10 @@ export async function renderToDOM(
         .join(' ')}>${innerHtml}</${def.name}>`;
     previousAurelia.register(component);
   }
+  console.log(parameters.args, story.props);
+  const App = CustomElement.define({ name: 'sb-app', template }, class {});
 
-  const App = CustomElement.define({ name: 'app', template }, class {});
-
-  const app = Object.assign(new App(), { ...parameters.args, ...element.props });
+  const app = Object.assign(new App(), { ...parameters.args, ...story.props });
 
   await previousAurelia
     .app({

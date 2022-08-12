@@ -1,6 +1,6 @@
 import { extractComponentDescription, enhanceArgTypes } from '@storybook/docs-tools';
 
-import { extractArgTypes } from './extractArgTypes';
+import { extractArgTypes } from './docs';
 
 export const parameters = {
   docs: {
