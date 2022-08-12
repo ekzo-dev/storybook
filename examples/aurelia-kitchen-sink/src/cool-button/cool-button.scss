@@ -1,0 +1,23 @@
+cool-button {
+  button {
+    color: white;
+    padding: 5px 10px;
+    border-radius: 5px;
+
+    &.primary {
+      background-color: blue;
+    }
+
+    &.secondary {
+      background-color: gray;
+    }
+
+    &.sm {
+      font-size: 60%;
+    }
+
+    &.lg {
+      font-size: 100%;
+    }
+  }
+}

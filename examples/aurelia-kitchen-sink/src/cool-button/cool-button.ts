@@ -1,38 +1,33 @@
 import { bindable } from 'aurelia';
 
-interface ISome {
-  gg: string;
+interface IParameters {
+  size?: string;
 }
 
-enum Aa {
-  a = 'fdfd',
-  b = 'fdfd',
-}
+type Variant = 'primary' | 'secondary';
 
 export class CoolButton {
   @bindable()
-  text: Aa;
+  text = 'Click me';
 
   @bindable()
-  buttonType = 'primary';
+  variant: Variant = 'primary';
 
   @bindable()
-  booleanProp: boolean;
+  disabled = false;
 
   @bindable()
-  numberProp: number;
+  dataCount = 0;
 
   @bindable()
-  lambdaProp: () => void;
+  params: IParameters = {};
 
   @bindable()
-  functionProp: Function;
+  onClick: () => void;
 
   handleClick() {
-    console.log('handleClick');
-    if (this.lambdaProp) {
-      console.log('hasLambdaProp');
-      this.lambdaProp();
+    if (this.onClick) {
+      this.onClick();
     }
   }
 }

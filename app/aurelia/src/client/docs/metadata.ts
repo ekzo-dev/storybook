@@ -16,7 +16,7 @@ declare namespace Reflect {
   function getMetadata(metadataKey: any, target: any, propertyKey?: string | symbol): any;
 }
 
-export type ComponentAstData = Record<string, { default: any; comment?: string }>;
+export type ComponentAstData = Record<string, { defaultValue: any; comment?: string }>;
 
 export const getComponentBindables = (component: Component) => {
   const def = CustomElement.getDefinition(component);
@@ -29,9 +29,9 @@ export const getComponentAstData = (
   properties: string[]
 ): ComponentAstData => {
   const source = component.prototype.constructor.toString();
-  const result: ComponentAstData = {};
+  const data: ComponentAstData = {};
   let lastProperty: string;
-  console.log('bindable in ast', properties);
+
   recast.visit(recast.parse(source), {
     visitAssignmentExpression: ({ value }: { value: AssignmentExpression }) => {
       const { left, right } = value;
@@ -41,16 +41,20 @@ export const getComponentAstData = (
         left.object.type === 'ThisExpression' &&
         ['Literal', 'ObjectExpression'].includes(right.type)
       ) {
-        console.log('found ast prop', value);
         const { name } = (left as MemberExpression).property as Identifier;
-        if (properties.includes(name)) {
-          const def =
-            right.type === 'ObjectExpression' ? recast.print(right) : (right as Literal).value;
 
-          result[name] = {
-            default: def,
+        if (properties.includes(name)) {
+          const defaultValue =
+            right.type === 'ObjectExpression'
+              ? JSON.parse(recast.print(right as ObjectExpression).code)
+              : (right as Literal).value;
+
+          data[name] = {
+            defaultValue,
           };
           lastProperty = name;
+        } else {
+          lastProperty = undefined;
         }
       }
 
@@ -58,17 +62,16 @@ export const getComponentAstData = (
       return false;
     },
     visitComment: ({ value }: { value: Comment }) => {
-      console.log(value);
       if (lastProperty) {
-        result[lastProperty].comment = value.value;
+        data[lastProperty].comment = value.value;
       }
 
       // return false to stop at this depth
       return false;
     },
   });
-  console.log('ast metadata', result);
-  return result;
+
+  return data;
 };
 
 export const getPropertyType = (
