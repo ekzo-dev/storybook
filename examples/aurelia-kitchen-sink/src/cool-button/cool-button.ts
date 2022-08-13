@@ -17,10 +17,13 @@ export class CoolButton {
   disabled = false;
 
   @bindable()
-  dataCount = 0;
+  dataCount: number;
 
   @bindable()
   params: IParameters = {};
+
+  @bindable()
+  classes: string[] = [];
 
   @bindable()
   onClick: () => void;

@@ -1,8 +1,13 @@
 import { ArgTypesExtractor } from '@storybook/docs-tools';
 import { StrictArgTypes } from '@storybook/csf';
-import { getComponentBindables, getComponentAstData, getPropertyType } from './metadata';
+import {
+  getComponentBindables,
+  getComponentAstData,
+  getPropertyType,
+  getTypeFromValue,
+} from './metadata';
 
-const isObject = (obj: any) => obj.toString() === '[object Object]';
+const shouldEncode = (obj: any) => obj.toString() === '[object Object]' || Array.isArray(obj);
 
 export const extractArgTypes: ArgTypesExtractor = (component) => {
   if (component) {
@@ -17,11 +22,14 @@ export const extractArgTypes: ArgTypesExtractor = (component) => {
       const tsType = getPropertyType(component, bindable.property);
       const propAstData = astData[bindable.property] || ({} as any);
 
-      // determine data type
-      const type = tsType;
-
       // get default value
       const { defaultValue } = propAstData;
+
+      // determine data type
+      let type = tsType;
+      if (type === 'object' && defaultValue !== undefined) {
+        type = getTypeFromValue(defaultValue);
+      }
 
       // determine appropriate control or action
       const control =
@@ -40,7 +48,7 @@ export const extractArgTypes: ArgTypesExtractor = (component) => {
           defaultValue:
             defaultValue !== undefined
               ? {
-                  summary: isObject(defaultValue) ? JSON.stringify(defaultValue) : defaultValue,
+                  summary: shouldEncode(defaultValue) ? JSON.stringify(defaultValue) : defaultValue,
                 }
               : undefined,
         },

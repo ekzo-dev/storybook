@@ -1,14 +1,7 @@
 import type { SBType } from '@storybook/csf';
 import type { Component } from '@storybook/docs-tools';
 import * as recast from 'recast';
-import {
-  AssignmentExpression,
-  MemberExpression,
-  Literal,
-  ObjectExpression,
-  Identifier,
-  Comment,
-} from 'estree';
+import { AssignmentExpression, MemberExpression, Literal, Identifier, Comment } from 'estree';
 import { CustomElement } from 'aurelia';
 
 // eslint-disable-next-line @typescript-eslint/no-namespace
@@ -39,15 +32,15 @@ export const getComponentAstData = (
       if (
         left.type === 'MemberExpression' &&
         left.object.type === 'ThisExpression' &&
-        ['Literal', 'ObjectExpression'].includes(right.type)
+        ['Literal', 'ObjectExpression', 'ArrayExpression'].includes(right.type)
       ) {
         const { name } = (left as MemberExpression).property as Identifier;
 
         if (properties.includes(name)) {
           const defaultValue =
-            right.type === 'ObjectExpression'
-              ? JSON.parse(recast.print(right as ObjectExpression).code)
-              : (right as Literal).value;
+            right.type === 'Literal'
+              ? (right as Literal).value
+              : JSON.parse(recast.print(right).code);
 
           data[name] = {
             defaultValue,
@@ -87,10 +80,19 @@ export const getPropertyType = (
     case Number:
     case Object:
     case Function:
+    case Array:
       type = metadata.name.toLowerCase();
       break;
     default:
   }
 
   return type;
+};
+
+export const getTypeFromValue = (value: any): SBType['name'] => {
+  if (Array.isArray(value)) {
+    return 'array';
+  }
+
+  return typeof value as SBType['name'];
 };
