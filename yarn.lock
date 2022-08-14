@@ -7801,7 +7801,6 @@ __metadata:
     global: ^4.4.0
     html-webpack-plugin: ^5.5.0
     htmlhint: ^1.1.4
-    jsdoc-parse-plus: ^1.3.0
     os-browserify: ^0.3.0
     react: 16.14.0
     react-dom: 16.14.0
@@ -30966,13 +30965,6 @@ __metadata:
   bin:
     jscodeshift: bin/jscodeshift.js
   checksum: cc947312fb91594ba1eaad833b3d890b65cb53343d7bf5e34c90844db5cb1faab03eff9f4db771869e9846772cc996d29c95467d1182d0961f535ffd3ef64445
-  languageName: node
-  linkType: hard
-
-"jsdoc-parse-plus@npm:^1.3.0":
-  version: 1.3.0
-  resolution: "jsdoc-parse-plus@npm:1.3.0"
-  checksum: 692fe563d58681ad9d2a3e8b5f1de63bb8ea10622ca5409c8b2ed8986e09ab3c17a923cf7f77eb71f3cb9b7548ca1d1e5d6a602c56346e927b71fc4fe7935d34
   languageName: node
   linkType: hard
 
