@@ -9,11 +9,11 @@
     "storybook": "start-storybook -p 9009 --no-manager-cache"
   },
   "dependencies": {
-    "aurelia": "2.0.0-alpha.36"
+    "aurelia": "2.0.0-alpha.38"
   },
   "devDependencies": {
-    "@aurelia/testing": "2.0.0-alpha.36",
-    "@aurelia/webpack-loader": "2.0.0-alpha.36",
+    "@aurelia/testing": "2.0.0-alpha.38",
+    "@aurelia/webpack-loader": "2.0.0-alpha.38",
     "@storybook/addon-a11y": "6.5.10",
     "@storybook/addon-actions": "6.5.10",
     "@storybook/addon-backgrounds": "6.5.10",
