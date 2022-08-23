@@ -23,7 +23,7 @@ export class CoolButton {
   params: IParameters = {};
 
   @bindable()
-  classes: string[] = [];
+  myClasses: string[] = [];
 
   @bindable()
   onClick: () => void;
