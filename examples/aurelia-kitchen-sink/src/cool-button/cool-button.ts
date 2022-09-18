@@ -28,6 +28,9 @@ export class CoolButton {
   @bindable()
   onClick: () => void;
 
+  @bindable()
+  nullable: string | null = null;
+
   handleClick() {
     if (this.onClick) {
       this.onClick();
