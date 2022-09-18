@@ -1,4 +1,5 @@
 import { bindable } from 'aurelia';
+import { BaseButton } from './base';
 
 interface IParameters {
   size?: string;
