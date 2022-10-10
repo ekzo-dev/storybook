@@ -1,6 +1,7 @@
 import { addons, useEffect } from '@storybook/addons';
 import { SourceType, SNIPPET_RENDERED } from '@storybook/docs-tools';
-import { StoryContext } from '..';
+import { PartialStoryFn } from '@storybook/csf';
+import { StoryContext, AureliaFramework } from '..';
 import { createComponentTemplate } from '../preview/aurelia';
 
 /**
@@ -27,7 +28,10 @@ const skipSourceRender = (context: StoryContext) => {
  * @param storyFn Fn
  * @param context StoryContext
  */
-export const sourceDecorator = (storyFn: any, context: StoryContext) => {
+export const sourceDecorator = (
+  storyFn: PartialStoryFn<AureliaFramework>,
+  context: StoryContext
+) => {
   const channel = addons.getChannel();
   const skip = skipSourceRender(context);
   const story = storyFn();
@@ -43,8 +47,12 @@ export const sourceDecorator = (storyFn: any, context: StoryContext) => {
     return story;
   }
 
+  const { template } = story;
   const { component } = context || {};
-  if (component) {
+
+  if (template) {
+    source = template;
+  } else if (component) {
     source = createComponentTemplate(component, story.innerHtml);
   }
 
