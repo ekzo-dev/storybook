@@ -166,6 +166,7 @@
     "@storybook/addons": "workspace:*",
     "@storybook/angular": "workspace:*",
     "@storybook/api": "workspace:*",
+    "@storybook/aurelia": "workspace:*",
     "@storybook/babel-plugin-require-context-hook": "1.0.1",
     "@storybook/blocks": "workspace:*",
     "@storybook/builder-manager": "workspace:*",
