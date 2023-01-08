@@ -6069,7 +6069,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@storybook/aurelia-webpack5@workspace:frameworks/aurelia-webpack5":
+"@storybook/aurelia-webpack5@workspace:*, @storybook/aurelia-webpack5@workspace:frameworks/aurelia-webpack5":
   version: 0.0.0-use.local
   resolution: "@storybook/aurelia-webpack5@workspace:frameworks/aurelia-webpack5"
   dependencies:
@@ -7085,7 +7085,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@storybook/preset-aurelia-webpack@7.0.0-beta.19, @storybook/preset-aurelia-webpack@workspace:presets/aurelia-webpack":
+"@storybook/preset-aurelia-webpack@7.0.0-beta.19, @storybook/preset-aurelia-webpack@workspace:*, @storybook/preset-aurelia-webpack@workspace:presets/aurelia-webpack":
   version: 0.0.0-use.local
   resolution: "@storybook/preset-aurelia-webpack@workspace:presets/aurelia-webpack"
   dependencies:
@@ -7514,6 +7514,7 @@ __metadata:
     "@storybook/angular": "workspace:*"
     "@storybook/api": "workspace:*"
     "@storybook/aurelia": "workspace:*"
+    "@storybook/aurelia-webpack5": "workspace:*"
     "@storybook/babel-plugin-require-context-hook": 1.0.1
     "@storybook/blocks": "workspace:*"
     "@storybook/builder-manager": "workspace:*"
@@ -7553,6 +7554,7 @@ __metadata:
     "@storybook/preact": "workspace:*"
     "@storybook/preact-vite": "workspace:*"
     "@storybook/preact-webpack5": "workspace:*"
+    "@storybook/preset-aurelia-webpack": "workspace:*"
     "@storybook/preset-html-webpack": "workspace:*"
     "@storybook/preset-preact-webpack": "workspace:*"
     "@storybook/preset-react-webpack": "workspace:*"
