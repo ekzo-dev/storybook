@@ -6069,7 +6069,25 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@storybook/aurelia@workspace:*, @storybook/aurelia@workspace:renderers/aurelia":
+"@storybook/aurelia-webpack5@workspace:frameworks/aurelia-webpack5":
+  version: 0.0.0-use.local
+  resolution: "@storybook/aurelia-webpack5@workspace:frameworks/aurelia-webpack5"
+  dependencies:
+    "@storybook/aurelia": 7.0.0-beta.19
+    "@storybook/builder-webpack5": 7.0.0-beta.19
+    "@storybook/core-common": 7.0.0-beta.19
+    "@storybook/preset-aurelia-webpack": 7.0.0-beta.19
+    aurelia: 2.0.0-alpha.40
+    typescript: ~4.9.3
+  peerDependencies:
+    "@babel/core": "*"
+    aurelia: ">=2.0.0-alpha.40"
+    react: ^16.8.0 || ^17.0.0 || ^18.0.0
+    react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0
+  languageName: unknown
+  linkType: soft
+
+"@storybook/aurelia@7.0.0-beta.19, @storybook/aurelia@workspace:*, @storybook/aurelia@workspace:renderers/aurelia":
   version: 0.0.0-use.local
   resolution: "@storybook/aurelia@workspace:renderers/aurelia"
   dependencies:
@@ -7064,6 +7082,21 @@ __metadata:
     typescript: ~4.9.3
   peerDependencies:
     preact: ^8.0.0||^10.0.0
+  languageName: unknown
+  linkType: soft
+
+"@storybook/preset-aurelia-webpack@7.0.0-beta.19, @storybook/preset-aurelia-webpack@workspace:presets/aurelia-webpack":
+  version: 0.0.0-use.local
+  resolution: "@storybook/preset-aurelia-webpack@workspace:presets/aurelia-webpack"
+  dependencies:
+    "@storybook/core-webpack": 7.0.0-beta.19
+    "@storybook/node-logger": 7.0.0-beta.19
+    aurelia: 2.0.0-alpha.40
+    ts-dedent: ^2.0.0
+    typescript: ~4.9.3
+  peerDependencies:
+    "@babel/core": "*"
+    aurelia: ">=2.0.0-alpha.40"
   languageName: unknown
   linkType: soft
 

@@ -349,6 +349,17 @@ export const allTemplates = {
       builder: '@storybook/builder-vite',
     },
   },
+  'aurelia-webpack5/default-ts': {
+    name: 'Aurelia Webpack5 (TS)',
+    script:
+      'npx makes aurelia aurelia-webpack5-default-ts --here -s default-typescript --yarn --no-install',
+    expected: {
+      framework: '@storybook/aurelia-webpack5',
+      renderer: '@storybook/aurelia',
+      builder: '@storybook/builder-webpack5',
+    },
+    inDevelopment: true,
+  },
 } satisfies Record<string, Template>;
 
 export const ci: TemplateKey[] = ['cra/default-ts', 'react-vite/default-ts'];
@@ -361,6 +372,7 @@ export const pr: TemplateKey[] = [
   'svelte-vite/default-ts',
   'svelte-kit/skeleton-ts',
   'nextjs/default-ts',
+  'aurelia-webpack5/default-ts',
 ];
 export const merged: TemplateKey[] = [
   ...pr,
