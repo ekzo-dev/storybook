@@ -1,4 +1,5 @@
 import { customElement, bindable } from 'aurelia';
+import './button.css';
 
 @customElement({
   name: 'storybook-button',
@@ -8,14 +9,14 @@ import { customElement, bindable } from 'aurelia';
     class.bind="classes"
     style.bind="{ backgroundColor: backgroundColor }"
   >
-    ${label}
+    \${label}
   </button>`,
 })
 export default class Button {
   /**
    * Is this the principal call to action on the page?
    */
-  @bindable()
+  @bindable({ set: (val) => val === '' || val === true || val === 'true' })
   primary = false;
 
   /**

@@ -1,15 +1,12 @@
 import { within, userEvent } from '@storybook/testing-library';
 import type { Meta, StoryObj } from '../../src';
-
-// import Button from './button';
-// import Header from './header';
 import Page from './page';
 
 const meta: Meta<Page> = {
   title: 'Example/Page',
   component: Page,
   parameters: {
-    // More on how to position stories at: https://storybook.js.org/docs/7.0/angular/configure/story-layout
+    // More on how to position stories at: https://storybook.js.org/docs/7.0/aurelia/configure/story-layout
     layout: 'fullscreen',
   },
 };
@@ -23,7 +20,7 @@ export const LoggedOut: Story = {
   }),
 };
 
-// More on interaction testing: https://storybook.js.org/docs/7.0/angular/writing-tests/interaction-testing
+// More on interaction testing: https://storybook.js.org/docs/7.0/aurelia/writing-tests/interaction-testing
 export const LoggedIn: Story = {
   render: (args: Page) => ({
     props: args,

@@ -1,16 +1,14 @@
 import type { Meta, StoryObj } from '../../src';
-
-// import Button from './button';
 import Header from './header';
 
 const meta: Meta<Header> = {
   title: 'Example/Header',
   component: Header,
-  // This component will have an automatically generated Autodocs entry: https://storybook.js.org/docs/7.0/angular/writing-docs/docs-page
+  // This component will have an automatically generated Autodocs entry: https://storybook.js.org/docs/7.0/aurelia/writing-docs/docs-page
   tags: ['autodocs'],
   render: (args) => ({ props: args }),
   parameters: {
-    // More on how to position stories at: https://storybook.js.org/docs/7.0/angular/configure/story-layout
+    // More on how to position stories at: https://storybook.js.org/docs/7.0/aurelia/configure/story-layout
     layout: 'fullscreen',
   },
 };

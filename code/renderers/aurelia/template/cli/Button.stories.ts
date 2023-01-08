@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from '../../src';
-import Button from './button';
+import Button from '../components/button';
 
-// More on how to set up stories at: https://storybook.js.org/docs/7.0/angular/writing-stories/introduction
+// More on how to set up stories at: https://storybook.js.org/docs/7.0/aurelia/writing-stories/introduction
 const meta: Meta<Button> = {
   title: 'Example/Button',
   component: Button,
@@ -22,7 +22,7 @@ const meta: Meta<Button> = {
 export default meta;
 type Story = StoryObj<Button>;
 
-// More on writing stories with args: https://storybook.js.org/docs/7.0/angular/writing-stories/args
+// More on writing stories with args: https://storybook.js.org/docs/7.0/aurelia/writing-stories/args
 export const Primary: Story = {
   args: {
     primary: true,

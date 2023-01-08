@@ -1,5 +1,6 @@
 import { customElement, bindable } from 'aurelia';
 import type { User } from './User';
+import Button from '../components/button';
 
 @customElement({
   name: 'storybook-header',
@@ -25,39 +26,35 @@ import type { User } from './User';
         <h1>Acme</h1>
       </div>
       <div>
-        <div *ngIf="user">
+        <div if.bind="user">
           <span class="welcome">
-            Welcome, <b>{{ user.name }}</b
-            >!
+            Welcome, <b>\${user.name}</b>!
           </span>
           <storybook-button
-            *ngIf="user"
             size="small"
-            (onClick)="onLogout.emit($event)"
+            on-click.bind="onLogout"
             label="Log out"
           ></storybook-button>
         </div>
-        <div *ngIf="!user">
+        <div else>
           <storybook-button
-            *ngIf="!user"
             size="small"
             class="margin-left"
-            (onClick)="onLogin.emit($event)"
+            on-click.bind="onLogin"
             label="Log in"
           ></storybook-button>
           <storybook-button
-            *ngIf="!user"
             primary
             size="small"
-            primary="true"
             class="margin-left"
-            (onClick)="onCreateAccount.emit($event)"
+            on-click.bind="onCreateAccount"
             label="Sign up"
           ></storybook-button>
         </div>
       </div>
     </div>
   </header>`,
+  dependencies: [Button],
 })
 export default class Header {
   @bindable()

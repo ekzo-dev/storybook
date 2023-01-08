@@ -1,14 +1,15 @@
 import { customElement } from 'aurelia';
 import type { User } from './User';
+import Header from './header';
 
 @customElement({
   name: 'storybook-page',
   template: `<article>
     <storybook-header
       user.bind="user"
-      onLogout.bind="doLogout"
-      onLogin.bind="doLogin"
-      onCreateAccount.bind="doCreateAccount"
+      on-logout.bind="doLogout"
+      on-login.bind="doLogin"
+      on-create-account.bind="doCreateAccount"
     ></storybook-header>
     <section>
       <h2>Pages in Storybook</h2>
@@ -58,6 +59,7 @@ import type { User } from './User';
       </div>
     </section>
   </article>`,
+  dependencies: [Header],
 })
 export default class Page {
   user: User | null = null;
