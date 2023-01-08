@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from '../../src';
+import type { Meta, StoryObj } from '@storybook/aurelia';
 import Button from '../components/button';
 
 // More on how to set up stories at: https://storybook.js.org/docs/7.0/aurelia/writing-stories/introduction

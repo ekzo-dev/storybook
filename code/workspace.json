@@ -96,6 +96,16 @@
       "root": "frameworks/angular",
       "type": "library"
     },
+    "@storybook/aurelia": {
+      "implicitDependencies": [],
+      "root": "renderers/aurelia",
+      "type": "library"
+    },
+    "@storybook/aurelia-webpack5": {
+      "implicitDependencies": [],
+      "root": "frameworks/aurelia-webpack5",
+      "type": "library"
+    },
     "@storybook/api": {
       "implicitDependencies": [],
       "root": "lib/manager-api-shim",
@@ -304,6 +314,11 @@
     "@storybook/preset-web-components-webpack": {
       "implicitDependencies": [],
       "root": "presets/web-components-webpack",
+      "type": "library"
+    },
+    "@storybook/preset-aurelia-webpack": {
+      "implicitDependencies": [],
+      "root": "presets/aurelia-webpack",
       "type": "library"
     },
     "@storybook/preview": {

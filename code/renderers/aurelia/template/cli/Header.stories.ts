@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from '../../src';
+import type { Meta, StoryObj } from '@storybook/aurelia';
 import Header from './header';
 
 const meta: Meta<Header> = {

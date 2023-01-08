@@ -29,4 +29,3 @@ export const storiesOf: ClientApi['storiesOf'] = (kind, m) => {
 export const configure: ClientApi['configure'] = (...args) => api.configure(FRAMEWORK, ...args);
 export const { forceReRender } = api;
 export const { raw } = api.clientApi;
-export { setup } from './render';

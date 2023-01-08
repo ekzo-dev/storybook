@@ -1,5 +1,5 @@
 import { within, userEvent } from '@storybook/testing-library';
-import type { Meta, StoryObj } from '../../src';
+import type { Meta, StoryObj } from '@storybook/aurelia';
 import Page from './page';
 
 const meta: Meta<Page> = {
