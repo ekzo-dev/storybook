@@ -6,7 +6,7 @@ export default {
   component: CoolButton,
 } as Meta;
 
-const Default: Story = (args) => ({
+const Default: Story = (args): StoryFnAureliaReturnType => ({
   props: args,
 });
 
