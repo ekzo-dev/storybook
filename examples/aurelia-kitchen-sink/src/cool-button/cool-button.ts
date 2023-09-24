@@ -25,7 +25,7 @@ export class CoolButton {
   params: IParameters = {};
 
   @bindable()
-  myClasses: string[] = [];
+  myClasses: string[] = ['class1', 'class2'];
 
   @bindable()
   onClick: () => void;
